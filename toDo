@@ -1,0 +1,3 @@
+make .dot function
+make sign change button and function
+change initial value of display "" => "0"
