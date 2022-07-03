@@ -6,14 +6,13 @@ var values = [];
 var ind = 0;
 var equalsHappend = false;
 
+// Adding event listners to all buttons
 for( var i = 0 ; i < buttons.children.length; i++){
     buttons.children[i].addEventListener("click", findAction);
 }
 
 
-
-
-//functions
+//functions used
 function add(val1 , val2){return String(val1 + val2);} 
 function sub(val1 , val2){return String(val1 - val2);} 
 function mult(val1 , val2){return String(val1 * val2);}
@@ -25,9 +24,6 @@ function div(val1, val2){
 function remainder(val1, val2){
     if (val2 == 0) {return "Its INFINITE"}
     return String(val1 % val2);
-}
-function changeSign(val){
-    return String(-val);
 }
 
 function findAction(e){
@@ -48,7 +44,12 @@ function findAction(e){
 }
 
 function dispNum(e){
+    if(e.target.value === "0" && checkZeroPos()){
+        currDisplay += e.target.value;
+    }
+    else if(e.target.value !== "0"){
     currDisplay += e.target.value;
+    }
 }
 
 function dispOp(e){
@@ -74,11 +75,14 @@ function dispRest(e){
         clear();
     }
     else if( e.target.className === "dot"){
-
+        dot();
     }
     else if( e.target.className === "equals"){
             equals();
             equalsHappend = true;
+    }
+    else if(e.target.className === "changeSign"){
+        changeSign();
     }
     console.log(currOp, values, values.length, currDisplay);
 }
@@ -91,7 +95,12 @@ function clear(){
 }
 
 function dot(){
-
+    if (currDisplay === ""){
+        currDisplay = "0.";
+    }
+    else if(!currDisplay.includes(".")){
+        currDisplay += ".";
+    }
 }
 
 function equals(){
@@ -132,3 +141,17 @@ function operate(){
     ind++;
     currDisplay = "";
 }
+
+function checkZeroPos(){
+    if(currDisplay === ""){
+        return false;
+    }
+    return true;
+}
+
+function changeSign(){
+    if (currDisplay !== ""){
+        currDisplay = String(-(Number(currDisplay)));
+    }
+}
+
