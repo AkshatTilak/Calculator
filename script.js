@@ -1,6 +1,7 @@
-// constants and variables
+// constants and variables and initial setup
 const buttons = document.getElementById("buttons");
 var currDisplay = "";
+display();
 var currOp = "";
 var values = [];
 var ind = 0;
@@ -41,6 +42,7 @@ function findAction(e){
     else{
         dispRest(e);
     }
+    display();
 }
 
 function dispNum(e){
@@ -155,3 +157,11 @@ function changeSign(){
     }
 }
 
+function display(){
+    if (currDisplay === ""){
+        document.getElementById("display").innerHTML = "0";
+    }
+    else{
+        document.getElementById("display").innerHTML = currDisplay;
+    }
+}
