@@ -1,22 +1,57 @@
 body{
     background-color: #213452;
-    font-size: 20px;
-}
+    font-size: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 
+}
+#display{
+    display: flex;
+    width: 380px;
+    border: black solid 20px;
+    justify-content: flex-end;
+    background-color: azure;
+    border-top-left-radius: 30px;
+}
 #buttons{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border : black solid 5px;
+    background-color: grey;
+    width: 410px;
+    height : 520px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 #buttons *{
     display: flex;
 }
 
+.rowOne button{
+    width :133px;
+    padding: 35px;
+    padding-left: 45px;
+}
+
 button{
     font-size: 20px;
+    font-weight: 500;
     height : 100px;
     width: 100px;
-    padding: 40px;
+    padding: 38px;
+    border-radius: 50px;
+    border: black solid 5px;
+}
+
+/* hover effect */
+button:hover{
+    border: azure solid 5px;
+    color: azure;
+    background-color: darkcyan;
 }

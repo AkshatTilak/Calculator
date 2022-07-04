@@ -9,7 +9,9 @@ var equalsHappend = false;
 
 // Adding event listners to all buttons
 for( var i = 0 ; i < buttons.children.length; i++){
-    buttons.children[i].addEventListener("click", findAction);
+    for( var z = 0 ; z< buttons.children[i].children.length; z++){
+        buttons.children[i].children[z].addEventListener("click", findAction);
+    }
 }
 
 
@@ -41,6 +43,9 @@ function findAction(e){
     }
     else{
         dispRest(e);
+    }
+    if(currDisplay.length > 11){
+        currDisplay = currDisplay.substring(0, 11);
     }
     display();
 }
@@ -165,3 +170,4 @@ function display(){
         document.getElementById("display").innerHTML = currDisplay;
     }
 }
+
